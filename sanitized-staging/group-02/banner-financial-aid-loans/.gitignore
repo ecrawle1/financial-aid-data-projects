@@ -1,0 +1,25 @@
+# Never commit student data or query exports
+*.csv
+*.xlsx
+*.xls
+*.tsv
+*.dat
+*.lis
+*.out
+*.txt
+*.json
+*.xml
+
+# Local / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.tmp
+
+# Credentials / environment
+.env
+.env.*
+*.pem
+*.key
