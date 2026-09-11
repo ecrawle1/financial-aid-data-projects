@@ -1,0 +1,23 @@
+-- SANITIZED PUBLIC VERSION
+-- Direct student identifiers and hard-coded student data have been removed from public output.
+-- Schema fields used internally for joins/comparisons are retained where required by query logic.
+-- Do not commit query results or exports containing student records.
+
+SELECT RPRAWRD_AIDY_CODE AIDY, RPRAWRD_FUND_CODE FUND, RPRAWRD_OFFER_AMT OFFERED, RPRAWRD_OFFER_DATE OFFER_DATE, 
+RPRAWRD_ACCEPT_AMT ACCEPTED, RPRAWRD_ACCEPT_DATE ACCEPT_DATE,
+RPRAWRD_PAID_AMT PAID, RPRAWRD_PAID_DATE PAID_DATE
+
+FROM RPRAWRD
+
+LEFT JOIN SPRIDEN
+ON      SPRIDEN_PIDM = RPRAWRD_PIDM
+AND     SPRIDEN_CHANGE_IND IS NULL
+
+WHERE 
+RPRAWRD_AIDY_CODE = '2223'
+AND     RPRAWRD_FUND_CODE IN ('SPNU01', 'SINU07')
+AND     (RPRAWRD_OFFER_DATE > '06-FEB-2023'
+OR      RPRAWRD_ACCEPT_DATE > '06-FEB-2023'
+OR      RPRAWRD_PAID_DATE > '06-FEB-2023')
+
+ORDER BY FUND
