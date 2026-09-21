@@ -1,0 +1,14 @@
+*.csv
+*.xlsx
+*.xls
+*.dat
+*.lis
+*.out
+*.txt
+*.json
+*.xml
+*.zip
+.env
+*.log
+.DS_Store
+Thumbs.db
